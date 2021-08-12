@@ -1,4 +1,4 @@
-module atlas
+module github.com/mohanasundaramn/atlas/cmd
 
 go 1.16
 

@@ -15,8 +15,8 @@ limitations under the License.
 */
 package main
 
-//import "github.com/mohanasundaramn/atlas/cmd"
-import "atlas/cmd"
+import "github.com/mohanasundaramn/atlas/cmd"
+//import "atlas/cmd"
 
 func main() {
 	cmd.Execute()
