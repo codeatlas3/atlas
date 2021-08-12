@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "github.com/mohanasundaramn/atlas/cmd"
+import "github.com/codeatlas3/atlas/cmd"
 //import "atlas/cmd"
 
 func main() {
