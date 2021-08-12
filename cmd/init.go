@@ -84,9 +84,9 @@ var initCmd = &cobra.Command{
 			Items: []string{"Y", "N"},
 		}
 
-		_, runIDE, err := runIDESelect.Run()
+		_, val, err := runIDESelect.Run()
 
-		if runIDE == "Y" {
+		if val == "Y" {
 			wd, err := os.Getwd()
 			if err != nil {
 				log.Fatalln("Unable to find the working directory")
@@ -312,6 +312,8 @@ func createDatabaseGoFile(projectName string) {
 		"go.mongodb.org/mongo-driver/mongo/options"
 		"go.mongodb.org/mongo-driver/mongo/readpref"
 	)
+
+	type Collections struct {}
 	
 	func Connect(loggy loggy.Loggy) (repository.Collections, error) {
 		uri := os.Getenv("MONGO_URI")
