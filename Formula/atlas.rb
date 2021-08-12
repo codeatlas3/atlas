@@ -5,29 +5,29 @@
 class Atlas < Formula
   desc "Atlas is an opinionated CLI to generate Golang microservice and Flutter application"
   homepage "https://github.com/codeatlas3/atlas"
-  version "0.0.3-alpha"
+  version "0.0.4-alpha"
   license "Apache 2.0"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/codeatlas3/atlas/releases/download/0.0.3-alpha/atlas_0.0.3-alpha_Darwin_x86_64.tar.gz"
-      sha256 "16b3303c7ccea2c08b86424b38180716ceb479a20daa23fc292deaba06e9aa38"
+      url "https://github.com/codeatlas3/atlas/releases/download/0.0.4-alpha/atlas_0.0.4-alpha_Darwin_x86_64.tar.gz"
+      sha256 "16d11659990460f5326e8c455111a22b24397c5ec736e2c1d34ee13bc24e58bf"
     end
     if Hardware::CPU.arm?
-      url "https://github.com/codeatlas3/atlas/releases/download/0.0.3-alpha/atlas_0.0.3-alpha_Darwin_arm64.tar.gz"
-      sha256 "49f537cd5dcb057ae7ef010148b280db30601853bf68600286da40f5b28c4f4e"
+      url "https://github.com/codeatlas3/atlas/releases/download/0.0.4-alpha/atlas_0.0.4-alpha_Darwin_arm64.tar.gz"
+      sha256 "b774bc3419fdd5180196295cb82f9f62d26197c3b00e2731660ce3dea831b463"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/codeatlas3/atlas/releases/download/0.0.3-alpha/atlas_0.0.3-alpha_Linux_x86_64.tar.gz"
-      sha256 "f6a1b85524165f3d54cc6dbbf226e6f2e53a4562800d27f8bc302b670b9bf275"
+      url "https://github.com/codeatlas3/atlas/releases/download/0.0.4-alpha/atlas_0.0.4-alpha_Linux_x86_64.tar.gz"
+      sha256 "1b81259a6a3b71e839f8125bd41dacef2fca5f2382fd41beae4664a0f6890fd1"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/codeatlas3/atlas/releases/download/0.0.3-alpha/atlas_0.0.3-alpha_Linux_arm64.tar.gz"
-      sha256 "ed3ee3d950eb4ce34384263cf725228f62f716334eb2ba79bb34b3b35be88065"
+      url "https://github.com/codeatlas3/atlas/releases/download/0.0.4-alpha/atlas_0.0.4-alpha_Linux_arm64.tar.gz"
+      sha256 "82e7526bc2f2cdd48660242e03335bc8c2d9d8a52c36d1b574ef582d8ac15204"
     end
   end
 
