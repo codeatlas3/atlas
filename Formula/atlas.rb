@@ -5,29 +5,29 @@
 class Atlas < Formula
   desc "Software to create fast and easy drum rolls."
   homepage "https://example.com/"
-  version "0.0.1-alpha"
+  version "0.0.2-alpha"
   license "Apache-2.0 License"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/codeatlas3/atlas/releases/0.0.1-alpha/atlas_0.0.1-alpha_Darwin_x86_64.tar.gz"
-      sha256 "7aa677c8c14b4fa6365271fc90763d4a18902631357ba93db4b0c7d014d918ab"
+      url "https://github.com/codeatlas3/atlas/releases/0.0.2-alpha/atlas_0.0.2-alpha_Darwin_x86_64.tar.gz"
+      sha256 "13b5f14efa1b3e608ca06ba4291ca4ddfcf18f38891dd216b5addf6d945a12a4"
     end
     if Hardware::CPU.arm?
-      url "https://github.com/codeatlas3/atlas/releases/0.0.1-alpha/atlas_0.0.1-alpha_Darwin_arm64.tar.gz"
-      sha256 "cf6baf7571ff49167c2b54cef39bc9f7a4055cd03d82f9e87dfe92eb242ed56e"
+      url "https://github.com/codeatlas3/atlas/releases/0.0.2-alpha/atlas_0.0.2-alpha_Darwin_arm64.tar.gz"
+      sha256 "e9c731f8438935e403554dd5eda7b7008a2799839212bb766a4f5feb339e7139"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/codeatlas3/atlas/releases/0.0.1-alpha/atlas_0.0.1-alpha_Linux_x86_64.tar.gz"
-      sha256 "a7bb932eafc46db8e1b5822b4af098858fe50a88db93992d34cfa4dcf91d142f"
+      url "https://github.com/codeatlas3/atlas/releases/0.0.2-alpha/atlas_0.0.2-alpha_Linux_x86_64.tar.gz"
+      sha256 "2dcc9c5a3ef94b23e33c80aadcdf1d5720664cae85f125023198d7219b99b052"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/codeatlas3/atlas/releases/0.0.1-alpha/atlas_0.0.1-alpha_Linux_arm64.tar.gz"
-      sha256 "5d1a93ee0e516bd39827384c2218f88f05358915e48613828e6e35986a911656"
+      url "https://github.com/codeatlas3/atlas/releases/0.0.2-alpha/atlas_0.0.2-alpha_Linux_arm64.tar.gz"
+      sha256 "49e7f18d82986d77ffa4f9249640cfb8aafbeb9c1d14b0ee02541ca0d88420b5"
     end
   end
 
