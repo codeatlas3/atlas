@@ -127,6 +127,18 @@ func createGolangProject(projectName string) {
 	createModelGoFile(projectName)
 	createAPIGoFile(projectName)
 	createLoggyGoFile(projectName)
+	createEnvGoFile(projectName)
+}
+
+func createEnvGoFile(projectName string) {
+	str := `package utils
+
+	const LOCAL = "local"
+	const DEV = "dev"
+	const TESTING = "testing"
+	const PROD = "prod"
+`
+	createFileFromTemplate("./utils/environment.go", str, projectName)
 }
 
 func createLoggyGoFile(projectName string) {
@@ -233,6 +245,13 @@ func createRepositoryGoFile(projectName string) {
 	)
 	
 	type Repository interface {}
+
+	func NewRepository(collections database.Collections, loggy loggy.Loggy) Repository {
+	return repository{
+		collections: collections,
+		loggy:       loggy,
+	}
+}
 `
 
 	err := os.MkdirAll("repository", os.ModePerm)
@@ -303,7 +322,6 @@ func createDatabaseGoFile(projectName string) {
 
 	import (
 		"context"
-		"{{ .ProjectName }}/repository"
 		"{{ .ProjectName }}/utils/loggy"
 		"os"
 		"time"
@@ -315,7 +333,7 @@ func createDatabaseGoFile(projectName string) {
 
 	type Collections struct {}
 	
-	func Connect(loggy loggy.Loggy) (repository.Collections, error) {
+	func Connect(loggy loggy.Loggy) (Collections, error) {
 		uri := os.Getenv("MONGO_URI")
 		dbCtx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 		defer cancel()
@@ -323,20 +341,18 @@ func createDatabaseGoFile(projectName string) {
 		client, err := mongo.Connect(dbCtx, opt)
 		loggy.Error(err)
 		if err != nil {
-			return repository.Collections{}, err
+			return Collections{}, err
 		} else {
 			if err := client.Ping(dbCtx, readpref.Primary()); err != nil {
 				loggy.Error(err)
-				return repository.Collections{}, err
+				return Collections{}, err
 			}
 			// Replace with your db name
 			db := client.Database("test")
 			
 			sampleCollection := db.Collection("sample")
 
-			return repository.Collections{
-				SampleCollection: sampleCollection,
-			}, nil
+			return Collections{}, nil
 		}
 	}
 `
@@ -430,16 +446,23 @@ func createMainGoFile(projectName string) {
 	str := `package main
 
 	import (
-		"{{ .ProjectName }}/server"
 		"log"
 		"os"
+		"vehicle_management_service/server"
+		"vehicle_management_service/utils"
 	)
 	
 	func main() {
 		port := os.Getenv("PORT")
+		env := os.Getenv("ENV")
 		app := server.Setup()
-		log.Fatal(app.Listen("localhost:" + port))
+		if env == utils.LOCAL {
+			log.Fatal(app.Listen("localhost:" + port))
+		} else {
+			log.Fatal(app.Listen(":" + port))
+		}
 	}
+
 	`
 	createFileFromTemplate("./main.go", str, projectName)
 
