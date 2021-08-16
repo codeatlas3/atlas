@@ -5,29 +5,29 @@
 class Atlas < Formula
   desc "Atlas is an opinionated CLI to generate Golang microservice and Flutter application"
   homepage "https://github.com/codeatlas3/atlas"
-  version "0.0.4-alpha"
+  version "0.0.5-alpha"
   license "Apache 2.0"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/codeatlas3/atlas/releases/download/0.0.4-alpha/atlas_0.0.4-alpha_Darwin_x86_64.tar.gz"
-      sha256 "16d11659990460f5326e8c455111a22b24397c5ec736e2c1d34ee13bc24e58bf"
+      url "https://github.com/codeatlas3/atlas/releases/download/0.0.5-alpha/atlas_0.0.5-alpha_Darwin_x86_64.tar.gz"
+      sha256 "c9126c945dbe550d6e7c84279352ff68670f5ada589cc8612d76c343d06963ee"
     end
     if Hardware::CPU.arm?
-      url "https://github.com/codeatlas3/atlas/releases/download/0.0.4-alpha/atlas_0.0.4-alpha_Darwin_arm64.tar.gz"
-      sha256 "b774bc3419fdd5180196295cb82f9f62d26197c3b00e2731660ce3dea831b463"
+      url "https://github.com/codeatlas3/atlas/releases/download/0.0.5-alpha/atlas_0.0.5-alpha_Darwin_arm64.tar.gz"
+      sha256 "1c104641a2c0b60251cc2183eaff7f6a6aeba110e2131ef705f04d46db065a92"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/codeatlas3/atlas/releases/download/0.0.4-alpha/atlas_0.0.4-alpha_Linux_x86_64.tar.gz"
-      sha256 "1b81259a6a3b71e839f8125bd41dacef2fca5f2382fd41beae4664a0f6890fd1"
+      url "https://github.com/codeatlas3/atlas/releases/download/0.0.5-alpha/atlas_0.0.5-alpha_Linux_x86_64.tar.gz"
+      sha256 "6bec639fbc04affee3688d69ffebd00c8c24d769008cbae07bbc75b2680637d4"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/codeatlas3/atlas/releases/download/0.0.4-alpha/atlas_0.0.4-alpha_Linux_arm64.tar.gz"
-      sha256 "82e7526bc2f2cdd48660242e03335bc8c2d9d8a52c36d1b574ef582d8ac15204"
+      url "https://github.com/codeatlas3/atlas/releases/download/0.0.5-alpha/atlas_0.0.5-alpha_Linux_arm64.tar.gz"
+      sha256 "e4369480f4230d6aa3003a4449f5ab2c12bda34e108e713bdb06015df728e32f"
     end
   end
 
